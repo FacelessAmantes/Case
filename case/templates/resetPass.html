@@ -1,0 +1,130 @@
+{% load static %}
+{% csrf_token %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'FoglihtenNo06', Arial, sans-serif;
+        }
+
+        @font-face {
+            font-family: 'FoglihtenNo06';
+            src: url("{% static 'foglihtenno06/foglihtenno06.woff2' %}") format('woff2'),
+            url("{% static 'foglihtenno06/foglihtenno06.woff' %}") format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        .imagecard {
+            
+            width: 700px;
+            height: 100%;
+            border-radius: 20px;
+            /* justify-content: center; */
+            /* align-content: center; */
+            margin: auto;
+            background-repeat: no-repeat;
+            background-image: url("{% static 'ResetPas.png' %}");
+        }
+
+        .main {
+            height: 100%;
+            display: flex;
+            
+        }
+
+        .formpas {
+            align-items: center;
+            justify-content: center;
+            height: 600px;
+            width: 95%;
+            background-color: rgba(140, 14, 209, 0.38);
+            border-radius: 92px;
+            padding: 50px 10px 0 10px;
+        }
+
+        .formpas h2 {
+            font-size: 32px;
+        }
+        .container {
+            flex: 1;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 800px;
+            text-align: center;            
+            
+        }
+
+        .container h1 {
+            font-size: 64px;
+        }
+
+        .formpas input {
+            padding: 5px;
+            font-family: 'FoglihtenNo06', Arial, sans-serif;
+            text-decoration: none;
+            width: 500px;
+            height: 50px;
+            border: 0;
+            border-radius: 12px;
+            background-color: rgb(217, 217, 217);
+            outline: none;
+        }
+
+        .butpas {
+            margin-top: 150px;
+        }
+
+        .butpas button {
+            font-size: 32px;
+            outline: none;
+            font-family: 'FoglihtenNo06';
+            width: 220px;
+            height: 90px;
+            border-radius: 40px;
+            border: 0;
+            margin-left: 50px;
+        }
+
+        .break {
+            background-color: rgb(217, 217, 217);
+        }
+
+        .next {
+            color: white;
+            background-color: rgb(19, 4, 83);
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="main">    
+        <div class="imagecard">
+        </div>
+        <div class="container">
+            <h1>Восстановить пароль</h1>
+            <div class="formpas">
+                <h2>чтобы восстановить пароль введите вашу электронную почту</h2>
+                <input type="text" placeholder="электронная почта">
+                <div class="butpas">
+                    <button type="sibmit" class="break">
+                        ОТМЕНА
+                    </button>
+                    <button type="submit" class="next">
+                        ДАЛЕЕ
+                    </button>    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+{% load static %}
+{% csrf_token %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'FoglihtenNo06', Arial, sans-serif;
+        }
+
+        @font-face {
+            font-family: 'FoglihtenNo06';
+            src: url("{% static 'foglihtenno06/foglihtenno06.woff2' %}") format('woff2'),
+            url("{% static 'foglihtenno06/foglihtenno06.woff' %}") format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .imagecard {
+            margin: 10px;
+            width: 700px;
+            height: 100%;
+            border-radius: 20px;
+            /* justify-content: center; */
+            /* align-content: center; */
+            background-repeat: no-repeat;
+            background-image: url("{% static 'news.png' %}");
+        }
+
+        .main {
+            height: 100%;
+            display: flex;
+            
+        }
+
+        .container {
+            flex: 1;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 800px;
+            text-align: center;            
+            margin-left: 100px;
+        }
+
+        .container h1 {
+            font-size: 64px;
+        }
+
+        .infonews {
+            align-items: center;
+            justify-content: center;
+            height: 600px;
+            width: 95%;
+            background-color: rgba(140, 14, 209, 0.38);
+            border-radius: 92px;
+            padding: 50px 20px 0 20px;
+        }
+        .infonews h2 {
+            text-align: left;
+        }
+        .infonews p {
+            background-color: rgb(217, 217, 217);
+            border-radius: 15px;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .p2 {
+            height: 300px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">    
+        <div class="imagecard">
+        </div>
+        <div class="container">
+            <h1>Новость</h1>
+            <div class="infonews">
+                <h2>Название</h2>
+                <p>Lorem ipsum dolor</p>
+                <h2>Описание</h2>
+                <p class="p2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum accusantium numquam porro assumenda mollitia perspiciatis a omnis, ullam, iure, nihil molestiae aliquid dolor dignissimos quas. Quam dolorum nostrum id delectus?</p>
+                        
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

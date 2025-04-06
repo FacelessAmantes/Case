@@ -6,6 +6,7 @@ from api.db.database import get_user_db
 import bcrypt
 from sqlalchemy.orm import Session
 from psycopg2.errors import UniqueViolation
+
 router = APIRouter()
 
 
@@ -33,7 +34,7 @@ async def authorize(username: str, password: str, db: Session = Depends(get_user
     return JSONResponse(content={"message": "Авторизация прошла успешно"},status_code=200)
 
 
-@router.get("/get_user")
+@router.get("/get_users")
 async def register(db: Session = Depends(get_user_db)):
     # hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
     # new_user = User(username=username, hashed_password=hashed_password.decode('utf-8'), email=email)
