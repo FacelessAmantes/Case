@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from api.user_service.routers.auth import router
+from api.user_service.routers.articals import artical_router
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -13,6 +14,8 @@ app.add_middleware(
 )
 
 app.include_router(router=router)
+app.include_router(router=artical_router)
+
 
 
 # def startup_event():

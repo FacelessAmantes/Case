@@ -2,38 +2,41 @@
 {% csrf_token %}
 
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Web Page
-  </title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <style>
-    @font-face {
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+        Web Page
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <style>
+        @font-face {
             font-family: 'FoglihtenNo06';
             src: url("{% static 'foglihtenno06/foglihtenno06.woff2' %}") format('woff2'),
             url("{% static 'foglihtenno06/foglihtenno06.woff' %}") format('woff');
             font-weight: normal;
-            
             font-style: normal;
         }
 
-   body {
+        body {
             margin: 0;
             font-family: 'FoglihtenNo06', sans-serif;
             height: 100vh;
             width: 100vw;
         }
+
         .header {
             position: relative;
             text-align: center;
             color: white;
         }
+
         .header img {
             width: 100%;
             height: 75%;
         }
+
         .header .overlay {
             position: absolute;
             top: 0;
@@ -46,36 +49,49 @@
             justify-content: center;
             align-items: center;
         }
+
+        .hidden {
+            display: none;
+        }
+
         .header .overlay h1 {
             margin: 0;
             font-size: 48px;
         }
+
         .header .overlay p {
             margin: 0;
             font-size: 32px;
         }
+
         .header .overlay .search {
             position: absolute;
             top: 10px;
             right: 10px;
         }
+
         .header .overlay .search i {
             margin: 0 5px;
         }
+
         .news-section {
             padding: 20px;
             text-align: center;
         }
+
         div.news-item {
-            font-size: 24px;
+            font-size: 12px;
         }
+        
         .news-section h2 {
             margin: 0;
-            font-size: 24px;
+            font-size: 12px;
         }
+
         .news-section .filter {
             margin: 10px 0;
         }
+
         .news-section .filter button {
             padding: 5px 10px;
             margin: 0 5px;
@@ -83,12 +99,14 @@
             background: #ccc;
             cursor: pointer;
         }
+
         .news-section .news-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
         }
+
         .news-section .news-item {
             background: #0000ff;
             color: white;
@@ -100,90 +118,178 @@
             justify-content: center;
             align-items: center;
         }
+
         .footer {
             text-align: center;
             padding: 20px;
         }
+
         .footer i {
             margin: 0 10px;
             font-size: 24px;
             cursor: pointer;
         }
-  </style>
- </head>
- <body>
-  <div class="header">
-   <img alt="Header background image with a human hand and a robotic hand reaching towards each other with a glowing blue circle in the background" height="400" src="https://storage.googleapis.com/a1aa/image/Q1x8jVFkqbs8ANW1I7RojPjBfu1MOZLEqR16J-m3FDY.jpg" width="1200"/>
-   <div class="overlay">
-    <div class="search">
-     <i class="fas fa-search">
-     </i>
-     <i class="fas fa-user">
-     </i>
-     <i class="fas fa-bars">
-     </i>
-    </div>
-    <h1>
-     НОВОСТИ
-    </h1>
-    <p>
-     ИНТЕРЕСНЫЕ НОВОСТИ ИЗ НАУЧНОГО МИРА
-    </p>
-   </div>
-  </div>
-  <div class="news-section">
-   <h2>
-    НОВОСТИ
-   </h2>
-   <div class="filter">
-    <button>
-     Все
-    </button>
-    <button>
-     Популярные 
-    </button>
-   </div>
-   <div class="news-grid">
-    <div class="news-item" id="news_0">
-     <p class="title"></p>
-    </div>
-    <div class="news-item" id="news_1">
-     <p class="title"></p>
-    </div>
-    <div class="news-item" id="news_2">
-        <p class="title"></p>
-    </div>
-    <div class="news-item" id="news_3">
-     <p class="title"></p>
-    </div>
-    <div class="news-item" id="news_4">
-        <p class="title"></p>
-    </div>
-    <div class="news-item" id="news_5">
-        <p class="title"></p>
-    </div>
-    <script>
-        let news_items = Array()
-        for (let index = 0; index < 6; index++) {
-            news_items.push(document.querySelector('div#news_' + String(index)))
+        a.title{
+            font-size: 18;
+            color: rgb(255, 255, 255);
+            display: flex;
+            text-align: center;
         }
-        fetch('http://localhost:8000/registration?username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password) + '&email=' + encodeURIComponent(e_mail), {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                
-                            },
-                            mode: 'no-cors' 
-                        })
+    </style>
+</head>
 
-    </script>
-   </div>
-  </div>
-  <div class="footer">
-   <i class="fas fa-arrow-left">
-   </i>
-   <i class="fas fa-arrow-right">
-   </i>
-  </div>
- </body>
+<body>
+    <div class="header">
+        <img alt="Header background image with a human hand and a robotic hand reaching towards each other with a glowing blue circle in the background"
+            height="400" src="https://storage.googleapis.com/a1aa/image/Q1x8jVFkqbs8ANW1I7RojPjBfu1MOZLEqR16J-m3FDY.jpg"
+            width="1200" />
+        <div class="overlay">
+            <div class="search">
+                <i class="fas fa-search">
+                </i>
+                <i class="fas fa-user">
+                </i>
+                <i class="fas fa-bars">
+                </i>
+            </div>
+            <h1>
+                НОВОСТИ
+            </h1>
+            <p>
+                ИНТЕРЕСНЫЕ НОВОСТИ ИЗ НАУЧНОГО МИРА
+            </p>
+        </div>
+    </div>
+    <div class="news-section">
+        <h2>
+            НОВОСТИ
+        </h2>
+        <div class="filter">
+            <button>
+                Все
+            </button>
+            <button>
+                Популярные
+            </button>
+        </div>
+        <div class="news-grid">
+            <div class="news-item" id="news_0">
+                <a class="title"></a>
+            </div>
+            <div class="news-item" id="news_1">
+                <a class="title"></a>
+            </div>
+            <div class="news-item" id="news_2">
+                <a class="title"></a>
+            </div>
+            <div class="news-item" id="news_3">
+                <a class="title"></a>
+            </div>
+            <div class="news-item" id="news_4">
+                <a class="title"></a>
+            </div>
+            <div class="news-item" id="news_5">
+                <a class="title"></a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button class="fas fa-arrow-left" id="button_left">
+            </button>
+            <button class="fas fa-arrow-right" id="button_right">
+            </button>
+        </div>
+        <script>
+
+            let articals = Array()
+            let news_items = Array()
+            function set_articles(start_index, end_index, articals_arr) {
+                // console.log(articals_arr)
+                for (let index = 0; index < 7; index++) {
+                    // console.log(articals_arr)
+                    
+                    if (articals_arr.slice(start_index, end_index)[index]){
+                    news_items[index].innerHTML = articals_arr.slice(start_index, end_index)[index]['title']
+                    news_items[index].href = articals_arr.slice(start_index, end_index)[index]['url']
+                    } else {
+                        news_items[index].innerHTML = 'Новости пока нет'
+                    }
+
+                }
+            }
+
+            for (let index = 0; index < 6; index++) {
+                news_items.push(document.querySelector('div#news_' + String(index)).querySelector('a'))
+            }
+            fetch('http://localhost:8001/get_articals?limit=1000', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }).then(response => {
+                // Проверяем, успешен ли ответ
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Преобразуем ответ в JSON
+            })
+                .then(data => {
+                    console.log(data)
+                    console.log(typeof data)
+
+                    // Проверяем, что data является массивом
+
+                    data.forEach(element => {
+                        console.log(element)
+                        articals.push(element); // Добавляем элементы в массив articals
+                    })
+                    set_articles(0, 6, articals);
+
+                }
+            )
+                .catch(error => {
+                    console.error('Произошла ошибка:', error);
+                });
+
+
+            // Получаем элементы кнопок по их ID
+            const buttonLeft = document.getElementById('button_left');
+            const buttonRight = document.getElementById('button_right');
+            let startIndexArticles = 0
+            let endIndexArticles = 5
+
+
+            if (startIndexArticles == 0) {
+                buttonLeft.className = 'hidden'
+            }
+
+
+
+            // Добавляем обработчик события для кнопки "влево"
+            buttonLeft.addEventListener('click', function () {
+                console.log('Кнопка "влево" нажата');
+                
+                startIndexArticles = startIndexArticles-6
+                endIndexArticles = endIndexArticles - 6
+                set_articles(startIndexArticles, endIndexArticles, articals);
+
+                // Здесь можно добавить логику для обработки нажатия кнопки "влево"
+            });
+
+            // Добавляем обработчик события для кнопки "вправо"
+            buttonRight.addEventListener('click', function () {
+                console.log('Кнопка "вправо" нажата');
+                buttonLeft.className = "fas fa-arrow-left"
+                startIndexArticles = startIndexArticles+5
+                endIndexArticles = endIndexArticles + 6
+                set_articles(startIndexArticles, endIndexArticles, articals);
+
+                // Здесь можно добавить логику для обработки нажатия кнопки "вправо"
+            });
+
+        </script>
+    </div>
+
+</body>
+
 </html>
